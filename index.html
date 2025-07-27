@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #fceff9, #fdfdff);
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 100px auto 50px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #b13e6f;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .flowers-section {
+      margin: 40px auto;
+    }
+
+    .flowers-section h2 {
+      color: #b13e6f;
+      margin-bottom: 20px;
+      width: 20px;
+    }
+
+    .flower-img {
+      max-width: 200px;
+      margin: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      height: 200px;
+    }
+
+    .flower-img:hover {
+      transform: scale(1.05);
+    }
+
+    .letter {
+      margin-top: 50px;
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      text-align: left;
+      line-height: 1.8;
+    }
+
+    .promise-section {
+      margin-top: 60px;
+      background: #ffeaf1;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .promise-section h3 {
+      color: #b13e6f;
+      margin-bottom: 15px;
+    }
+
+    .promise-section p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .signature-input {
+      margin-top: 15px;
+      padding: 10px;
+      border: 2px solid #b13e6f;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .signature-pad-section {
+      margin-top: 40px;
+      background: #fff;
+      padding: 20px;
+      border: 2px dashed #b13e6f;
+      border-radius: 12px;
+    }
+
+    canvas {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .clear-button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background-color: #b13e6f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .petal {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50% 50% 50% 50%;
+      opacity: 0.7;
+      animation: fall 10s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .breathe {
+      margin-top: 40px;
+      width: 150px;
+      height: 150px;
+      background: #ffc0cb;
+      border-radius: 50%;
+      animation: breathe 6s ease-in-out infinite;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+    }
+
+    @keyframes breathe {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hey You</h1>
+    <p>
+      This isn’t just a page. It’s a little room made only for you — to sit with your thoughts, cry if you need, and breathe without pressure. No explanations, no expectations. Just this space, and me, staying here silently with you.
+    </p>
+    <p>
+      You don’t need to be okay right now. You don’t have to explain the weight you feel. Just lean back and let your heart rest a little. I’m here. And I’m not going anywhere.
+    </p>
+
+    <div class="flowers-section">
+      <img class="flower-img" src="flowers.jpg" alt="Flower 1">
+      <img class="flower-img" src="SORRRY.jpg" alt="Flower 2">
+      <img class="flower-img" src="lilly.jpg" alt="Flower 3">
+    </div>
+
+    <div class="letter">
+      <p>This page… this little corner of the world… it’s not just a website or something fancy I built. It’s a quiet space made only for you — a soft room where your heart can rest, where your mind can slow down, where your eyes can tear up without shame. You don’t have to explain anything here. You don’t have to pretend. Just breathe, love… just breathe. And I’ll be right here with you — not asking you to be okay, not expecting you to say anything. Just staying with you in silence, holding you close in every way I know how.</p>
+      <p>Thalli… I know I hurt you, and I don’t even deserve to say sorry. But from everything inside me — I am sorry. I truly am. Nuvvu ante naku chala istam, bangaram. You are my everything. My person. My peace. You are the one soul that brings warmth into every cold moment of mine. And when you’re hurting, especially when you hurt yourself, it destroys something inside me. I’m not angry at you. I’m not judging you. But it hurts more than anything in this world, to know that you’re in so much pain and I couldn't stop it.</p>
+      <p>Please, don’t ever harm yourself again. You are far too precious, too beautiful, too deeply loved. You don’t have to carry the weight of everything. You don’t have to be perfect. You just have to be here, alive, with me. That’s enough. That’s everything. And I promise you this — there won’t be more fights. Not like this. Not the kind that breaks us. I’ll protect your heart, I’ll guard your smile, and I’ll hold your soul like it’s the most fragile, sacred thing I’ve ever touched. Because it is.</p>
+      <p>Let me make it all right. Let me build you a life where you always feel safe, always feel heard, always feel loved beyond words. Let’s get married. Let’s grow together, laugh together, and heal everything that ever tried to break us. No more hurting. No more heavy silences. Just love. Real, soft, lasting love. I love you. And I always will.</p>
+    </div>
+
+    <div class="breathe"></div>
+    <p><em>Breathe in... hold... breathe out. You're safe here.</em></p>
+
+    <div class="promise-section">
+      <h3>Can we make a promise? 💖</h3>
+      <p>Just one soft promise. That no matter how heavy life feels… you’ll never harm yourself again. That you’ll talk to me. Lean on me. Let me hold you when things fall apart.</p>
+      <p>If your heart is whispering "yes" — then just sign below, not for me… but for you.</p>
+      <input class="signature-input" type="text" placeholder="Type your name here as a promise...">
+
+      <div class="signature-pad-section">
+        <p><strong>Or draw your signature here:</strong></p>
+        <canvas id="signatureCanvas" width="300" height="150"></canvas><br>
+        <button class="clear-button" onclick="clearSignature()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating petals -->
+  <script>
+    const body = document.body;
+    for (let i = 0; i < 40; i++) {
+      let petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+      petal.style.animationDelay = Math.random() * 5 + 's';
+      body.appendChild(petal);
+    }
+
+    const canvas = document.getElementById('signatureCanvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+
+    canvas.addEventListener('mousedown', () => { drawing = true });
+    canvas.addEventListener('mouseup', () => { drawing = false; ctx.beginPath(); });
+    canvas.addEventListener('mouseout', () => { drawing = false; ctx.beginPath(); });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (!drawing) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#b13e6f';
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    });
+
+    function clearSignature() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+</body>
+</html>
+
+
+
