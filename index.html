@@ -43,7 +43,6 @@
     .flowers-section h2 {
       color: #b13e6f;
       margin-bottom: 20px;
-      width: 20px;
     }
 
     .flower-img {
@@ -52,7 +51,6 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
-      height: 200px;
     }
 
     .flower-img:hover {
@@ -87,37 +85,26 @@
       margin-bottom: 10px;
     }
 
-    .signature-input {
-      margin-top: 15px;
-      padding: 10px;
+    canvas {
       border: 2px solid #b13e6f;
       border-radius: 8px;
+      margin-top: 20px;
+      background: white;
+    }
+
+    .button {
+      margin-top: 15px;
+      padding: 10px 20px;
       font-size: 1rem;
-      width: 80%;
-      max-width: 400px;
-    }
-
-    .signature-pad-section {
-      margin-top: 40px;
-      background: #fff;
-      padding: 20px;
-      border: 2px dashed #b13e6f;
-      border-radius: 12px;
-    }
-
-    canvas {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .clear-button {
-      margin-top: 10px;
-      padding: 8px 14px;
-      background-color: #b13e6f;
       color: white;
+      background-color: #b13e6f;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #9d2f5e;
     }
 
     .petal {
@@ -174,6 +161,7 @@
     </p>
 
     <div class="flowers-section">
+      
       <img class="flower-img" src="flowers.jpg" alt="Flower 1">
       <img class="flower-img" src="SORRRY.jpg" alt="Flower 2">
       <img class="flower-img" src="lilly.jpg" alt="Flower 3">
@@ -192,14 +180,10 @@
     <div class="promise-section">
       <h3>Can we make a promise? 💖</h3>
       <p>Just one soft promise. That no matter how heavy life feels… you’ll never harm yourself again. That you’ll talk to me. Lean on me. Let me hold you when things fall apart.</p>
-      <p>If your heart is whispering "yes" — then just sign below, not for me… but for you.</p>
-      <input class="signature-input" type="text" placeholder="Type your name here as a promise...">
-
-      <div class="signature-pad-section">
-        <p><strong>Or draw your signature here:</strong></p>
-        <canvas id="signatureCanvas" width="300" height="150"></canvas><br>
-        <button class="clear-button" onclick="clearSignature()">Clear</button>
-      </div>
+      <p>If your heart is whispering "yes" — then draw your promise below. Just for you.</p>
+      <canvas id="signature" width="300" height="150"></canvas><br />
+      <button class="button" onclick="clearCanvas()">Clear</button>
+      <button class="button" onclick="saveSignature()">Save This Promise</button>
     </div>
   </div>
 
@@ -215,32 +199,61 @@
       body.appendChild(petal);
     }
 
-    const canvas = document.getElementById('signatureCanvas');
+    const canvas = document.getElementById('signature');
     const ctx = canvas.getContext('2d');
+    ctx.strokeStyle = '#b13e6f';
+    ctx.lineWidth = 2;
     let drawing = false;
 
-    canvas.addEventListener('mousedown', () => { drawing = true });
-    canvas.addEventListener('mouseup', () => { drawing = false; ctx.beginPath(); });
-    canvas.addEventListener('mouseout', () => { drawing = false; ctx.beginPath(); });
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mouseup', end);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchstart', start);
+    canvas.addEventListener('touchend', end);
+    canvas.addEventListener('touchmove', draw);
 
-    canvas.addEventListener('mousemove', (e) => {
-      if (!drawing) return;
+    function getPos(e) {
       const rect = canvas.getBoundingClientRect();
-      ctx.lineWidth = 2;
-      ctx.lineCap = 'round';
-      ctx.strokeStyle = '#b13e6f';
-      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-    });
+      return {
+        x: (e.touches ? e.touches[0].clientX : e.clientX) - rect.left,
+        y: (e.touches ? e.touches[0].clientY : e.clientY) - rect.top
+      };
+    }
 
-    function clearSignature() {
+    function start(e) {
+      e.preventDefault();
+      drawing = true;
+      const pos = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+    }
+
+    function end(e) {
+      drawing = false;
+    }
+
+    function draw(e) {
+      if (!drawing) return;
+      const pos = getPos(e);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+    }
+
+    function clearCanvas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function saveSignature() {
+      const dataURL = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = 'your_promise_signature.png';
+      link.click();
     }
   </script>
 </body>
 </html>
+
 
 
 
